@@ -11,7 +11,9 @@ Este repositório segue o formato de [mercadopago-skills](https://github.com/fab
 | [melhorenvio-shipping](melhorenvio-shipping/SKILL.md) | Implementar ou revisar integração REST de fretes e logística reversa |
 | [melhorenvio-mcp-server](melhorenvio-mcp-server/SKILL.md) | Configurar ou diagnosticar o servidor MCP oficial Streamable HTTP |
 
-As referências registram as URLs oficiais para conferir payloads e regras atuais. O índice de toda a documentação fica em <https://docs.melhorenvio.com.br/llms.txt>.
+## Fontes das informações
+
+O conteúdo foi pesquisado em 65 páginas Markdown da [documentação oficial do Melhor Envio](https://docs.melhorenvio.com.br/llms.txt), consultadas em 01/10/2026. As principais são [autenticação e OAuth](https://docs.melhorenvio.com.br/reference/fluxo-de-autorização.md), [cotação](https://docs.melhorenvio.com.br/docs/cotacao-de-fretes.md), [inclusão no carrinho](https://docs.melhorenvio.com.br/reference/inserir-fretes-no-carrinho.md), [compra de fretes](https://docs.melhorenvio.com.br/reference/compra-de-fretes-1.md), [webhooks](https://docs.melhorenvio.com.br/docs/webhooks.md) e [servidor MCP](https://docs.melhorenvio.com.br/docs/mcp-server-melhor-envio.md). Cada referência dentro das skills aponta para a página oficial do assunto, para conferência de campos e regras atuais.
 
 ## Instalação global
 
@@ -29,7 +31,9 @@ O clone só é necessário quando você não tiver os arquivos instalados. O rep
 
 As páginas oficiais foram consultadas em 01/10/2026. A documentação contém uma divergência sobre expiração de itens no carrinho (7 ou 20 dias), registrada na skill. Antes de usar uma regra sujeita a mudança ou executar ação financeira, abra a fonte oficial atual e teste no ambiente apropriado.
 
-Nenhum token, client secret, credencial ou dado de conta está incluído aqui. Este repositório não tem vínculo com o Melhor Envio.
+Nenhum token, client secret, credencial ou dado de conta está incluído aqui.
+
+**Projeto independente e não oficial.** Estas skills não são produzidas, mantidas, aprovadas nem endossadas pelo Melhor Envio e não representam a empresa. O nome Melhor Envio é usado somente para identificar a API e a documentação às quais as skills se referem.
 
 ## Licença
 
