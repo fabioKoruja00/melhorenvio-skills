@@ -1,4 +1,4 @@
-# melhorenvio-skills
+# Melhor Envio Skills
 
 Skills de agente para a API e o MCP oficiais do Melhor Envio: OAuth, cotação, carrinho, compra de fretes, etiquetas, rastreio, webhooks e diagnóstico de conexão.
 
