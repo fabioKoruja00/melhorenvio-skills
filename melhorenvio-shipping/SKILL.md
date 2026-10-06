@@ -29,6 +29,6 @@ A FAQ informa 250 requisições por minuto por usuário autenticado. A documenta
 
 ## Referências
 
-- [Fluxos e regras com fontes](references/fluxos-e-regras.md)
+- [Fluxos e regras com fontes](references/fluxos-e-regras.md); a seção "Observado em produção" traz o que a API faz e a doc não diz (403 por escopo, tracking parado, gateway, webhook)
 - [Rotas e fontes](references/api-reference.md)
 - [Índice oficial](https://docs.melhorenvio.com.br/llms.txt)
