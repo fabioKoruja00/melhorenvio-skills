@@ -41,3 +41,15 @@ Fontes: [checkout](https://docs.melhorenvio.com.br/reference/compra-de-fretes-1.
 - Sandbox e produção são separados. Sandbox simula transportadoras limitadas, não gera postagem real e tem limitações para reversa e impressão. Parceria verificada é opcional para consumir a API; é exigida para catálogo e benefícios da parceria.
 
 Fontes: [webhooks](https://docs.melhorenvio.com.br/docs/webhooks.md), [Sandbox](https://docs.melhorenvio.com.br/docs/sandbox.md), [verificação](https://docs.melhorenvio.com.br/docs/verificacao.md), [FAQ](https://docs.melhorenvio.com.br/reference/faq.md).
+
+## Observado em produção
+
+Medido em 06/10/2026 numa loja real, com aplicativo próprio e etiqueta paga por link. Não está na documentação; reconfirme antes de depender.
+
+- **Escopo faltando dá 403 sem citar o escopo.** A resposta é `This action is unauthorized.`. Sem `orders-read`, `GET /me/orders/{id}` falha. Sem `cart-read`, `GET /me/cart` e `/me/cart/{id}` falham. Sem `shipping-preview`, `/shipment/preview` falha. Sem `shipping-cancel`, `/shipment/cancel` e `/shipment/cancellable` falham. Escopo novo só vale depois de o usuário autorizar o aplicativo de novo.
+- **Tracking do token do aplicativo pode ficar parado.** Depois do pagamento por link, `POST /shipment/tracking` com o token OAuth do aplicativo seguiu `pending` por horas. A mesma consulta pela sessão do painel dizia `released`, na mesma conta. `/shipment/generate` com o token do aplicativo foi aceito. Use o webhook assinado como fonte de verdade do pagamento e guarde o status dele.
+- **Pagamento por link: só `yapay`.** `gateway: "mercado-pago"` no `/shipment/checkout` devolveu "O meio de pagamento escolhido não está disponível para sua conta". `gateway: "yapay"` com `redirect` devolveu o link de pagamento (Pix, boleto ou cartão); o Pix pode ser pago pelo app do Mercado Pago. Não há API que debite outra carteira sozinha.
+- **Webhook chega antes do tracking.** `order.released` chegou no mesmo segundo de `paid_at`, com o tracking ainda `pending`. Responda não-2xx quando o trabalho não terminou; o reenvio vem em 15 minutos.
+- **Status do aviso nem sempre acompanha o evento.** Um `order.generated` chegou com `data.status: "released"` e `data.tracking` já com o código dos Correios. Gerar de novo devolve `status: false` com "O envio já está gerado". Código da transportadora em `data.tracking` indica etiqueta gerada. `data` também traz `self_tracking` e `tracking_url`.
+- **Webhook só se cadastra pelo painel:** Integrações, Área Dev, aplicativo, Novo Webhook. A API não tem rota para isso.
+- **Cancelamento confirmado vem por ID:** a resposta é `{ "<id>": { "canceled": true } }`. Exija esse `true` antes de estornar o comprador. Etiqueta `posted` ou `delivered` já está com a transportadora.
