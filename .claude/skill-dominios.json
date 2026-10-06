@@ -1,8 +1,0 @@
-{
-  "dominios": [
-    {"dominio": "skills do Melhor Envio", "caminho": "/melhorenvio-[a-z-]+/.*\\.md$", "skills": ["melhorenvio-*", "skill-creator", "superpowers-writing-skills", "writing-for-agents"]},
-    {"dominio": "documentação do repo", "caminho": "/(README|LICENSE)(\\.md)?$", "skills": ["writing-guidelines", "living-docs-governance", "skill-creator"]}
-  ],
-  "comandos": [],
-  "sem_arquivo": []
-}
