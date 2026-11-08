@@ -1,36 +1,8 @@
 {
   "dominios": [
-    {
-      "dominio": "skills do Melhor Envio",
-      "caminho": "/melhorenvio-[a-z-]+/.*\\.md$",
-      "skills": [
-        "melhorenvio-*",
-        "skill-creator",
-        "superpowers-writing-skills",
-        "writing-for-agents"
-      ]
-    },
-    {
-      "dominio": "documentação do repo",
-      "caminho": "/(README|LICENSE)(\\.md)?$",
-      "skills": [
-        "writing-guidelines",
-        "living-docs-governance",
-        "skill-creator"
-      ]
-    }
+    {"dominio": "skills do Melhor Envio", "caminho": "/melhorenvio-[a-z-]+/.*\\.md$", "skills": ["melhorenvio-*", "skill-creator", "superpowers-writing-skills", "writing-for-agents"]},
+    {"dominio": "documentação do repo", "caminho": "/(README|LICENSE)(\\.md)?$", "skills": ["writing-guidelines", "living-docs-governance", "skill-creator"]}
   ],
-  "comandos": [
-    {
-      "dominio": "Refatoração e estrutura",
-      "comando": "\\bgit\\s+mv\\b|\\bgit\\s+commit\\b[^\\n]*\\brefactor[(:!]|\\b(jscpd|madge|depcruise|knip|ts-prune|vulture)\\b",
-      "skills": [
-        "untangle-codebase",
-        "code-review",
-        "caveman-review"
-      ],
-      "uso": "Refatoração: mover arquivo, commit refactor ou detector de duplicação/dependência. untangle-codebase lista ligações escondidas, desnecessárias, sobra e casos especiais; sem subagentes, uma correção por PR."
-    }
-  ],
+  "comandos": [],
   "sem_arquivo": []
 }
